@@ -7,6 +7,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <sys/wait.h>
+#include <stddef.h>
 
 void display_prompt(char **av, char **env);
 
