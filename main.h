@@ -6,6 +6,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <sys/wait.h>
-void display_prompt(char **av, char **env);
+#define MAX COMMAND 10
+void display_prompt(char **av, char **env)
 
 #endif
