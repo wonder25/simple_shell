@@ -9,6 +9,6 @@
 #include <sys/wait.h>
 #include <stddef.h>
 
-void display_prompt(char **av, char **env);
+void display_prompt(char **av, char **env)
 
 #endif
