@@ -1,17 +1,28 @@
 #include "main.h"
+
 /**
- * main - takes one argument from stdin
- * @ac: argument count
- * @av:argument vector
- * @env: environment variable
- *
- * Return: 0 if pass
+ * main - Entry point of the shell program
+ * @argc: Number of command line arguments
+ * @argv: Array of command line arguments
+ * Return: 0 on success
  */
-int main(int ac, char **av, char **env)
+
+int main(int argc, char **argv)
 {
-	if (ac == 1)
+	char *input = NULL;
+
+	if (argc > 1 && my_strcmp(argv[0], "./hsh") == 0)
 	{
-		display_prompt(av, env);
+		file_input(argc, argv);
+		exit(0);
 	}
+
+	while (1)
+	{
+		prompt();
+		input = read_input();
+		handle_input(input);
+	}
+
 	return (0);
 }

@@ -18,6 +18,18 @@
 #include <fcntl.h>
 #include <errno.h>
 
+extern char **environ;
+/**
+ * struct linkedList - path linked list
+ * @str: path directories
+ * @next: pointer to the next node
+ */
+typedef struct linkedList
+{
+	char *str;
+	struct linkedList *next;
+} LL;
+
 /* functions prototypes */
 
 void prompt();
