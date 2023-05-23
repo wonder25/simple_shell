@@ -69,7 +69,7 @@ void execute_env(char **env);
 int execute_cd(char **tokens);
 void shell_setenv(char **args);
 void shell_unsetenv(char **args);
-
+char *custom_strchr(const char *str, int c);
 
 
 
