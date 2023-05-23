@@ -58,3 +58,44 @@ char *find_executable(char *command, LL *path_list)
 	}
 	return (executable_path);
 }
+
+/**
+ * path_list - finds path in env variable
+ * Return: head node to the linked list
+ */
+
+LL *path_list(void)
+{
+	LL *head = NULL;
+	char *path = getenv("PATH");
+	LL *node;
+	char *path_copy = my_strdup(path);
+	char *token;
+
+	if (!path_copy)
+	{
+		perror("malloc failure");
+		return (NULL);
+	}
+	token = strtok(path_copy, ":");
+
+	while (token != NULL)
+	{
+		node = malloc(sizeof(LL));
+		if (!node)
+		{
+			perror("malloc failure");
+			free_list(head);
+			free(path_copy);
+			return (NULL);
+		}
+
+		node->str = my_strdup(token);
+		node->next = head;
+		head = node;
+
+		token = strtok(NULL, ":");
+	}
+	free(path_copy);
+	return (head);
+}

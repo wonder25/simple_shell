@@ -54,7 +54,10 @@ void print_string(char *str);
 int get_stringlength(const char *str);
 void write_string(char *str);
 int my_strcmp(const char *str1, const char *str2);
-
+char *get_env(const char *name);
+char *my_strdup(const char *str);
+void free_list(LL *head);
+void print_list(LL *head);
 
 
 
