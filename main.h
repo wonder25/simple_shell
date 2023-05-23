@@ -50,6 +50,10 @@ char *find_executable(char *command, LL *path_list);
 LL *path_list();
 void execute_builtins(char **tokens, char **env);
 char *read_input(void);
+void print_string(char *str);
+int get_stringlength(const char *str);
+void write_string(char *str);
+int my_strcmp(const char *str1, const char *str2);
 
 
 
