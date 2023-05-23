@@ -24,3 +24,37 @@ char *get_env(const char *name)
 	}
 	return (NULL);
 }
+
+/**
+ * find_executable - checks if file exists and can be executable
+ * @command: command being executed
+ * @path_list: list of directories to check
+ *  Return: exe path for command
+ */
+
+char *find_executable(char *command, LL *path_list)
+{
+	char *executable_path = NULL;
+	char *path = NULL;
+	int command_len = get_stringlength(command);
+	int path_len;
+	int new_len;
+	char *new_path;
+
+	while (path_list != NULL)
+	{
+		path = path_list->str;
+		path_len = get_stringlength(path);
+		new_len = path_len + command_len + 2;
+		new_path = malloc(new_len * sizeof(char));
+
+		if (new_path == NULL)
+		{
+			executable_path = new_path;
+		break;
+		}
+		free(new_path);
+		path_list = path_list->next;
+	}
+	return (executable_path);
+}
