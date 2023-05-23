@@ -62,6 +62,12 @@ char *concatenateStrings(char *str1, char *str2);
 int myStrncmp(const char *s1, const char *s2, size_t n);
 int custom_setenv(const char *name, const char *value, int overwrite);
 int custom_unsetenv(const char *name);
+void execute_exit(char **tokens);
+void execute_env(char **env);
+int execute_cd(char **tokens);
+void shell_setenv(char **args);
+void shell_unsetenv(char **args);
+
 
 
 
