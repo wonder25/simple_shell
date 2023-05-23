@@ -58,7 +58,8 @@ char *get_env(const char *name);
 char *my_strdup(const char *str);
 void free_list(LL *head);
 void print_list(LL *head);
-
+char *concatenateStrings(char *str1, char *str2);
+int myStrncmp(const char *s1, const char *s2, size_t n);
 
 
 
