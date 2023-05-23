@@ -14,18 +14,18 @@ int custom_setenv(const char *name, const char *value, int overwrite)
 	{
 		return (-1); /* error, could not allocate memory */
 	}
-	mystrcpy(envstr, name);
-	mystrcat(envstr, "=");
-	mystrcat(envstr, value);
+	myStrcpy(envstr, name);
+	myStrcat(envstr, "=");
+	myStrcat(envstr, value);
 
-	int results = (_getenv(name) && !overwrite) ? 0 : custom_putenv(envstr);
+	int result = (get_env(name) && !overwrite) ? 0 : custom_putenv(envstr);
 
 	if (result != 0)
 	{
 		free(envstr);
 	}
 
-	return resul;
+	return result;
 }
 
 /**
@@ -44,12 +44,12 @@ int custom_unsetenv(const char *name)
 
 	if (!envp || !*envp)
 	{
-		return (-1) /* error, environment not available */
+		return (-1); /* error, environment not available */
 	}
 
 	int len = get_stringlength(name);
 
-	char **newenvp = (char **)malloc(sizeof(char *) * (custom_environsize() + 1));
+	char **newenvp = (char **)malloc(sizeof(char *) * (custom_environSize() + 1));
 	if (!newenvp)
 	{
 		return (-1); /* error, could not allocate memory */
@@ -58,7 +58,7 @@ int custom_unsetenv(const char *name)
 	int j = 0;
 	for (int i = 0; envp[i]; i++)
 	{
-		if (mystrncmp(envp[i], name, len) != 0 || envp[i][len] != '=')
+		if (myStrncmp(envp[i], name, len) != 0 || envp[i][len] != '=')
 		{
 			newenvp[j++] = envp[i];
 		}
