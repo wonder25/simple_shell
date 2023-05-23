@@ -15,6 +15,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <sys/wait.h>
 #include <fcntl.h>
 #include <errno.h>
 
@@ -32,13 +33,26 @@ typedef struct linkedList
 
 /* functions prototypes */
 
-void prompt();
+ssize_t my_getline(char **lineptr, size_t *n, int fd);
+void prompt(void);
 void handle_input(char *input);
 int tokenize(char *input, char **tokens, int max_tokens);
 void execute(char **tokens);
 int my_strcmp(const char *str1, const char *str2);
 void handle_semicolon(char *input);
 int file_input(int argc, char **argv);
+char *command_checker(char **tokens);
+char *myStrcpy(char *dest, const char *src);
+char *myStrcat(char *dest, const char *src);
+int myStrncmp(const char *s1, const char *s2, size_t n);
+int execute_command(char **args, char *path[]);
+char *find_executable(char *command, LL *path_list);
+LL *path_list();
+void execute_builtins(char **tokens, char **env);
+char *read_input(void);
+
+
+
 
 
 
