@@ -1,25 +1,18 @@
 #include "main.h"
 
-typedef void (*builtin_func)(char **)
-builtin_func builtins[] =
-{
-	&execute_exit,
-	&execute_env,
-	&execute_cd,
-	&shell_setenv,
-	&shell_unsetenv,
-};
+typedef struct {
+    char *name;
+    void (*func)(char **, char **);
+} builtin_func;
 
-char *builtin_str[] =
-{
-	"exit",
-	"env",
-	"cd",
-	"setenv",
-	"unsetenv",
+builtin_func builtin_commands[] = {
+    {"exit", execute_exit},
+    {"env", execute_env},
+    {"cd", execute_cd},
+    {"setenv", shell_setenv},
+    {"unsetenv", shell_unsetenv},
+    {NULL, NULL}
 };
-
-#define BUILTIN_NUM (sizeof(builtin_str) / sizeof(char *))
 
 /**
  * execute_builtins - handles builtin functions
@@ -28,12 +21,13 @@ char *builtin_str[] =
  */
 void execute_builtins(char **tokens, char **env)
 {
-	for (int i = 0; i < BUILTIN_NUM; i++)
-	{
-		if(my_strcmp(tokens[0], builtin_str[i]) == 0)
-		{
-			builtins[i](tokens);
-			break;
-		}
-	}
+    for (int i = 0; builtin_commands[i].name != NULL; i++)
+    {
+        if (my_strcmp(tokens[0], builtin_commands[i].name) == 0)
+        {
+            builtin_commands[i].func(tokens, env);
+            break;
+        }
+    }
 }
+
