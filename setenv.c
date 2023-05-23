@@ -9,7 +9,7 @@
  */
 int custom_setenv(const char *name, const char *value, int overwrite)
 {
-	char *envstr = (char *)malloc(getstringlength(name) + getstringlength(value) + 2);
+	char *envstr = (char *)malloc(get_stringlength(name) + get_stringlength(value) + 2);
 	if (!envstr)
 	{
 		return (-1); /* error, could not allocate memory */
@@ -47,7 +47,7 @@ int custom_unsetenv(const char *name)
 		return (-1) /* error, environment not available */
 	}
 
-	int len = getstringlength(name);
+	int len = get_stringlength(name);
 
 	char **newenvp = (char **)malloc(sizeof(char *) * (custom_environsize() + 1));
 	if (!newenvp)
