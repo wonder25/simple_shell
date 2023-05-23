@@ -2,6 +2,7 @@
 #include <stddef.h>
 #include <unistd.h>
 #include <errno.h>
+#include "main.h"
 
 #define INIT_BUF_SIZE 128
 

@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "main.h"
 
 typedef void (*builtin_func)(char **)
 builtin_func builtins[] =
