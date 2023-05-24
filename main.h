@@ -8,7 +8,7 @@
 #define MAX_ARGS 64
 #define MAX_PATH 1024
 #define DELIMITERS " \t\r\n\a"
-#define
+
 
 #include <stdio.h>
 #include <stdlib.h>
