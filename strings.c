@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * my_strdup - copies contents of input str to new memory
+ * str_dup - copies contents of input str to new memory
  * @str: string to be copied
  * Return: pouinter to new string
  */
 
-char *my_strdup(const char *str)
+char *str_dup(const char *str)
 {
 	size_t len = get_stringlength(str) + 1;
 	char *new_str = malloc(len);
@@ -45,13 +45,13 @@ int myStrncmp(const char *s1, const char *s2, size_t n)
 }
 
 /**
- * myStrcat - concats two strings
+ * str_cat - concats two strings
  * @dest: destination
  * @src: string source
  * Return: joined string
  */
 
-char *myStrcat(char *dest, const char *src)
+char *str_cat(char *dest, const char *src)
 {
 	char *firstdest = dest;
 
@@ -71,13 +71,13 @@ char *myStrcat(char *dest, const char *src)
 }
 
 /**
- * myStrcpy - copies contents of string to other string
+ * str_cpy - copies contents of string to other string
  * @dest: copying destination
  * @src: string copied
  * Return: string copied
  */
 
-char *myStrcpy(char *dest, const char *src)
+char *str_cpy(char *dest, const char *src)
 {
 	char *firstdest = dest;
 
@@ -110,7 +110,7 @@ char *concatenateStrings(char *str1, char *str2)
 		exit(1);
 	}
 
-	result = myStrcpy(result, str1);
-	result = myStrcat(result, str2);
+	result = str_cpy(result, str1);
+	result = str_cat(result, str2);
 	return (result);
 }

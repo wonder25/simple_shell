@@ -16,9 +16,9 @@ int custom_setenv(const char *name, const char *value, int overwrite)
 	{
 		return (-1); /* error could not allocate memory */
 	}
-	myStrcpy(envstr, name);
-	myStrcat(envstr, "=");
-	myStrcat(envstr, value);
+	str_cpy(envstr, name);
+	str_cat(envstr, "=");
+	str_cat(envstr, value);
 
 	result = (getenv(name) && !overwrite) ? 0 : custom_putenv(envstr);
 

@@ -64,7 +64,7 @@ char *command_checker(char **tokens)
 
 		if (path == NULL)
 		{
-			perror(myStrcat(tokens[0], ": command not found\n"));
+			perror(str_cat(tokens[0], ": command not found\n"));
 		}
 		else
 		{

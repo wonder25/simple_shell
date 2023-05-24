@@ -69,7 +69,7 @@ LL *path_list(void)
 	LL *head = NULL;
 	char *path = getenv("PATH");
 	LL *node;
-	char *path_copy = my_strdup(path);
+	char *path_copy = str_dup(path);
 	char *token;
 
 	if (!path_copy)
@@ -90,7 +90,7 @@ LL *path_list(void)
 			return (NULL);
 		}
 
-		node->str = my_strdup(token);
+		node->str = str_dup(token);
 		node->next = head;
 		head = node;
 
