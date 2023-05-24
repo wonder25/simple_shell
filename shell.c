@@ -11,7 +11,7 @@ int main(int argc, char **argv)
 {
 	char *input = NULL;
 
-	if (argc > 1 && my_strcmp(argv[0], "./hsh") == 0)
+	if (argc > 1 && compare_strings(argv[0], "./hsh") == 0)
 	{
 		file_input(argc, argv);
 		exit(0);
@@ -42,7 +42,7 @@ char *command_checker(char **tokens)
 
 	while (builtins[j])
 	{
-		if (my_strcmp(tokens[0], builtins[j]) == 0)
+		if (compare_strings(tokens[0], builtins[j]) == 0)
 		{
 			run_builtins(tokens, environ);
 			return (NULL);

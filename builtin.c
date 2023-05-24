@@ -7,11 +7,11 @@
  */
 void run_builtins(char **tokens, char **env)
 {
-	if (my_strcmp(tokens[0], "exit") == 0) /* check if command is "exit" */
+	if (compare_strings(tokens[0], "exit") == 0) /* check if command is "exit" */
 	{
 		run_exit(tokens);
 	}
-	else if (my_strcmp(tokens[0], "env") == 0) /* env built-in command */
+	else if (compare_strings(tokens[0], "env") == 0) /* env built-in command */
 	{
 		run_env(env);
 	}

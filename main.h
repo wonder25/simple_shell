@@ -37,7 +37,7 @@ void prompt(void);
 void handle_input(char *input);
 int tokenize(char *input, char **tokens, int max_tokens);
 void execute(char **tokens);
-int my_strcmp(const char *str1, const char *str2);
+int compare_strings(const char *str1, const char *str2);
 void handle_semicolon(char *input);
 int file_input(int argc, char **argv);
 char *command_checker(char **tokens);

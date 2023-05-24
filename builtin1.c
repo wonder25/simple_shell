@@ -72,7 +72,7 @@ int run_cd(char **tokens)
 			perror("cd");
 		}
 	}
-	else if (my_strcmp(tokens[1], "-") == 0)
+	else if (compare_strings(tokens[1], "-") == 0)
 	{
 		if (folder_prev == NULL)
 		{

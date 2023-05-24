@@ -43,13 +43,13 @@ void write_str(char *str)
 }
 
 /**
- * my_strcmp - compares two strings
+ * compare_strings - compares two strings
  * @str1: string one
  * @str2: string two
  * Return: the difference btwn the ASCII of the characters
  */
 
-int my_strcmp(const char *str1, const char *str2)
+int compare_strings(const char *str1, const char *str2)
 {
 	while (*str1 && *str2 && *str1 == *str2)
 	{
