@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * print_string - writes string to stdin
+ * print_str - writes string to stdin
  * @str: string to be written
  */
 
-void print_string(char *str)
+void print_str(char *str)
 {
 	size_t len = get_stringlength(str);
 
@@ -31,11 +31,11 @@ int get_stringlength(const char *str)
 }
 
 /**
- * write_string - writes string to stderr
+ * write_str - writes string to stderr
  * @str: Error message to be printed
  */
 
-void write_string(char *str)
+void write_str(char *str)
 {
 	size_t len = get_stringlength(str);
 
