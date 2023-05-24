@@ -1,11 +1,13 @@
 #ifndef MAIN_H
 #define MAIN_H
+
 #define MAX_INPUT_SIZE 1024
 #define MAX_TOKEN_SIZE 64
 #define MAX_NUM_TOKENS 64       /* max number of whitespace/" " */
 #define MAX_ARGS 64
 #define MAX_PATH 1024
 #define DELIMITERS " \t\r\n\a"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -15,6 +17,7 @@
 #include <sys/wait.h>
 #include <fcntl.h>
 #include <errno.h>
+
 extern char **environ;
 /**
  * struct linkedList - path linked list
@@ -26,7 +29,9 @@ typedef struct linkedList
 	char *str;
 	struct linkedList *next;
 } LL;
+
 /* function prototypes */
+
 ssize_t my_getline(char **lineptr, size_t *n, int fd);
 void prompt(void);
 void handle_input(char *input);
@@ -63,7 +68,7 @@ void execute_env(char **env);
 int execute_cd(char **tokens);
 void shell_setenv(char **args);
 void shell_unsetenv(char **args);
-
+char *custom_strchr(const char *str, int c);
 
 
 
