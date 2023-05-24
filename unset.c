@@ -8,21 +8,22 @@
 
 int custom_putenv(char *str)
 {
-	int i;
+	int i, j, new_environ_size;
+	char **new_environ;
 
 	if (!str || !*str || strchr(str, '=') == NULL)
 		return (-1); /* err, invalid input string */
 
 	/* calculate size of new environ array */
-	int new_environ_size = custom_environSize() + 2;
+	new_environ_size = custom_environSize() + 2;
 
 	/* allocate mem for new environ array */
-	char **new_environ = malloc(sizeof(char *) * new_environ_size);
+	new_environ = malloc(sizeof(char *) * new_environ_size);
 
 	if (!new_environ)
 		return (-1);
 	/* copy current environ to new array */
-	int j = 0;
+	j = 0;
 
 	for (i = 0; environ[i] != NULL; i++)
 	{
