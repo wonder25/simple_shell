@@ -1,6 +1,9 @@
 #include "main.h"
 
-/* builtin1 function for error messages */
+/**
+ * print_error - prints errors to stdout
+ */
+
 void print_error(const char *command, const char *error_msg)
 {
 	write(STDERR_FILENO, command, get_stringlength(command));
@@ -10,10 +13,11 @@ void print_error(const char *command, const char *error_msg)
 }
 
 /**
- * execute_exit - exitbuiltin
+ * run_exit - exitbuiltin
  * @tokens: tokenized commands
  */
-void execute_exit(char **tokens)
+
+void run_exit(char **tokens)
 {
 	int size = 0;
 
@@ -36,10 +40,10 @@ void execute_exit(char **tokens)
 }
 
 /**
- * execute_env - env builtin
+ * run_env - env builtin
  * @env: environment variable
  */
-void execute_env(char **env)
+void run_env(char **env)
 {
 	while (*env != NULL)
 	{
@@ -52,11 +56,11 @@ void execute_env(char **env)
 }
 
 /**
- * execute_cd - cd builtin
+ * run_cd - cd builtin
  *@tokens: tokenized commands
  *Return: 0 on success
  */
-int execute_cd(char **tokens)
+int run_cd(char **tokens)
 {
 	char *folder_new = getcwd(NULL, 0);
 	char *folder_prev = get_env("OLDPWD");
