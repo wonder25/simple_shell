@@ -69,7 +69,7 @@ int execute_cd(char **tokens);
 void shell_setenv(char **args);
 void shell_unsetenv(char **args);
 char *custom_strchr(const char *str, int c);
-
+void terminate_buffer(ssize_t len, char* buf);
 
 
 #endif

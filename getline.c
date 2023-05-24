@@ -91,8 +91,8 @@ ssize_t my_getline(char **lineptr, size_t *n, int fd)
 	}
 	if (is_empty_line(len, buf))
 	{
-		return (handle_empty_line(buf, lineptr);
-		terminate_buffer(len, buf));
+		return (handle_empty_line(buf, lineptr));
+		terminate_buffer(len, buf);
 	}
 	return (len);
 }
