@@ -41,9 +41,10 @@ void execute_exit(char **tokens)
  */
 void execute_env(char **env)
 {
-	while (*env !=NULL)
+	while (*env != NULL)
 	{
 		size_t len = get_stringlength(*env);
+
 		write(STDOUT_FILENO, *env, len);
 		write(STDOUT_FILENO, "\n", 1);
 		env++;
@@ -62,7 +63,7 @@ int execute_cd(char **tokens)
 
 	if (tokens[1] == NULL)
 	{
-		if (chdir(get_env("HOME")) !=0)
+		if (chdir(get_env("HOME")) != 0)
 		{
 			perror("cd");
 		}
