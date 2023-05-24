@@ -44,7 +44,7 @@ char *command_checker(char **tokens)
 	{
 		if (my_strcmp(tokens[0], builtins[j]) == 0)
 		{
-			execute_builtins(tokens, environ);
+			run_builtins(tokens, environ);
 			return (NULL);
 		}
 		j++;

@@ -47,7 +47,7 @@ int myStrncmp(const char *s1, const char *s2, size_t n);
 int execute_command(char **args, char *path[]);
 char *find_executable(char *command, LL *path_list);
 LL *path_list();
-void execute_builtins(char **tokens, char **env);
+void run_builtins(char **tokens, char **env);
 char *read_input(void);
 void print_string(char *str);
 int get_stringlength(const char *str);

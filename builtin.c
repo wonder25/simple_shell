@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * execute_builtins - handles builtin functions
+ * run_builtins - handles builtin functions
  * @tokens: tokenized commands
  * @env: contains values of environ
  */
-void execute_builtins(char **tokens, char **env)
+void run_builtins(char **tokens, char **env)
 {
 	if (my_strcmp(tokens[0], "exit") == 0) /* check if command is "exit" */
 	{
@@ -17,4 +17,3 @@ void execute_builtins(char **tokens, char **env)
 	}
 
 }
-
