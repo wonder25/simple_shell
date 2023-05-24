@@ -46,7 +46,7 @@ ssize_t handle_empty_line(char *buf, char **lineptr)
 }
 
 /**
- * my_getline - custom version of getline()
+ * getline - custom version of getline()
  * @lineptr: buffer for storing strings
  * @n: size of buffer
  * @fd: source to read from
@@ -92,7 +92,7 @@ ssize_t my_getline(char **lineptr, size_t *n, int fd)
 	if (is_empty_line(len, buf))
 	{
 		return (handle_empty_line(buf, lineptr));
-		terminate_buffer(len, buf);
+		close_buffer(len, buf);
 	}
 	return (len);
 }
